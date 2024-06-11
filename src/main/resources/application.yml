@@ -1,0 +1,6 @@
+app:
+  students:
+    create-students-on-start:
+      enabled: true
+
+
