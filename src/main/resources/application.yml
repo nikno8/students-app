@@ -1,6 +1,6 @@
 app:
   students:
     create-students-on-start:
-      enabled: true
+      enabled: ${CREATE_STUDENTS_ON_START:false}
 
 

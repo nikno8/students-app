@@ -2,13 +2,12 @@ package com.example.appstudents.init;
 
 import com.example.appstudents.entities.Student;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -21,7 +20,7 @@ public class StudentInitializer {
 
     @PostConstruct
     public void conditionalStudentCreate() {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/data/students.txt"))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/data/students.txt")))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(" ");
